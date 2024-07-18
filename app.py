@@ -22,7 +22,27 @@ JOBS = [{
     'title': 'Backend Engineer',
     'location': 'Bengaluru, India',
     'salary': 'Rs. 13,00,000'
-       }]
+}, {
+    'id': 5,
+    'title': 'Backend Engineer',
+    'location': 'Pune, India',
+    'salary': 'Rs. 13,00,000'
+}, {
+    'id': 6,
+    'title': 'Frontend Engineer',
+    'location': 'Hyderabad, India',
+    'salary': 'Rs. 10,00,000'
+}, {
+    'id': 7,
+    'title': 'HR Manager',
+    'location': 'Bengaluru, India',
+    'salary': 'Rs. 15,00,000'
+}, {
+    'id': 8,
+    'title': 'Content Writer',
+    'location': 'Kolkata, India',
+    'salary': 'Rs. 7,00,000'
+}]
 
 
 @app.route('/')
