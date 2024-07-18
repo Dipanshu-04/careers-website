@@ -1,58 +1,17 @@
 from flask import Flask, json, render_template, jsonify
-
+from database import load_jobs_from_db,  load_job_from_db
 app = Flask(__name__)
-
-JOBS = [{
-    'id': 1,
-    'title': 'Data Analyst',
-    'location': 'Delhi, India',
-    'salary': 'Rs. 15,00,000'
-}, {
-    'id': 2,
-    'title': 'Frontend Engineer',
-    'location': 'Remote',
-    'salary': 'Rs. 12,00,000'
-}, {
-    'id': 3,
-    'title': 'Data Scientist',
-    'location': 'Bengaluru, India',
-    'salary': 'Rs. 13,00,000'
-}, {
-    'id': 4,
-    'title': 'Backend Engineer',
-    'location': 'Bengaluru, India',
-    'salary': 'Rs. 13,00,000'
-}, {
-    'id': 5,
-    'title': 'Backend Engineer',
-    'location': 'Pune, India',
-    'salary': 'Rs. 13,00,000'
-}, {
-    'id': 6,
-    'title': 'Frontend Engineer',
-    'location': 'Hyderabad, India',
-    'salary': 'Rs. 10,00,000'
-}, {
-    'id': 7,
-    'title': 'HR Manager',
-    'location': 'Bengaluru, India',
-    'salary': 'Rs. 15,00,000'
-}, {
-    'id': 8,
-    'title': 'Content Writer',
-    'location': 'Kolkata, India',
-    'salary': 'Rs. 7,00,000'
-}]
-
 
 @app.route('/')
 def hello_world():
-    return render_template('home.html', jobs=JOBS)
+    jobs = load_jobs_from_db()
+    return render_template('home.html', jobs=jobs)
 
 
 @app.route("/api/jobs")
 def list_jobs():
-    return jsonify(JOBS)
+    jobs = load_jobs_from_db()
+    return jsonify(jobs)
 
 
 if __name__ == "__main__":
