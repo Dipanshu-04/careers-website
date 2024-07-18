@@ -10,18 +10,24 @@
         height: 360px;
         width: 100%;
         object-cover: cover;
+        margin-bottom:16px;
       }
     </style>
   </head>
   <body">
-    <div>
-      {% include 'navbar.html' %}
-    </div>
+    {% include 'navbar.html' %}
+    <img class="img-fluid" id= "banner" src = "static/Careers.jpg" alt="Dynamo Careers Image">
     <div class= "container">
-      <h1 class="text-center mt-5 mb-4">Dynamo Careers</h1>
-      <img class="img-fluid" id= "banner" src = "static/Careers.jpg" alt="Dynamo Careers Image">
-      <h2 class="text-center mt-4 mb-4">About Dynamo</h2>
-      <p  class="lead" align="justify"> At Dynamo Careers, we're obsessed with empowering people to craft fulfilling careers, not just find jobs. We envision a world where untapped potential is unleashed, and everyone has the tools to navigate the ever-evolving job market.  Our dynamic platform goes beyond traditional job boards.  Through in-depth skill assessments and personalized career roadmaps, we help you discover your true strengths and passions.  Then, we connect you with a curated selection of opportunities that align with your unique goals.  But that's not all.  Our expert coaches and cutting-edge resources provide ongoing support, so you can confidently navigate the interview process and land your dream position.  At Dynamo Careers, your success is our mission, and we're here to propel you towards a bright, fulfilling future in the workforce.</p>
+      <h1 class="text-center mt-3 mb-4">Dynamo Careers</h1>
+      <h2 class="text-center mt-4 mb-4">About </h2>
+      <div class="row" style="margin:bottom:16px">
+        <div class="col-md-7">
+        <p  class="lead" align="justify"> At Dynamo Careers, we're obsessed with empowering people to craft fulfilling careers, not just find jobs. We envision a world where untapped potential is unleashed, and everyone has the tools to navigate the ever-evolving job market.  Our dynamic platform goes beyond traditional job boards.  Through in-depth skill assessments and personalized career roadmaps, we help you discover your true strengths and passions.  Then, we connect you with a curated selection of opportunities that align with your unique goals.  But that's not all.  Our expert coaches and cutting-edge resources provide ongoing support, so you can confidently navigate the interview process and land your dream position.  At Dynamo Careers, your success is our mission, and we're here to propel you towards a bright, fulfilling future in the workforce.</p>
+        </div>
+        <div class="d-none d-md-block col-md-5">
+        <img src="/static/peopleWorking.jpg" style="height:380px;border-radius:4px" alt="People working">
+        </div>
+      </div>
       <h2 class="text-center mt-4">Job Openings </h2>
       <div>
         {% for job in jobs %}
@@ -29,10 +35,10 @@
         {% endfor %}
       </div>
       <div style="text-align: center;">
-      <button class ="btn btn-primary" style="margin-top: 20px">Contact Us</button>
-        <p style="margin-top: 20px">copyright 2024, Dynamo</p>
+      <a class ="btn btn-primary" href="mailto:dipanshutripathi11@gmail.com?subject=Question%20about%20job%20Openings&body=My%20name%3A%20%3Cyour%20name%3E%0D%0A%0D%0AMy%20question%3A%20%3Center%20question%20here%3E" style="margin-top: 20px">Contact Us</a>
       </div>
     </div>
+    {% include 'footer.html' %}
   </body>
   <script>
     document.addEventListener('scroll', () => {
