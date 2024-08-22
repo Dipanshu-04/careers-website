@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Application Submitted</title>  
+    {% include 'bootstrap.html' %}
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    {% include 'banner.html' %}
+
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4">
+        Dynamo Careers
+      </h1>
+
+      <p>Your application for the role of <b>{{job[0].title}}</b> at Dynamo has been submitted!</p>
+
+      <b>Full Name</b>
+      <div class="mb-2">{{application[].full_name}}</div>
+
+      <b>Email</b>
+      <div class="mb-2">{{application[0]email}}</div>
+
+      <b>LinkedIn URL</b>
+      <div class="mb-2">{{application[0].linkedin_url}}</div>
+
+      <b>Education</b>
+      <div class="mb-2">{{application[0].education}}</div>
+
+      <b>Work Experience</b>
+      <div class="mb-2">{{application[0].work_experience}}</div>
+
+      <b>Resume URL</b>
+      <div class="mb-2">{{application[0].resume_url}}</div>
+    </div>
+    {% include 'footer.html' %}
+  </body>
+</html>

@@ -3,6 +3,11 @@
   <head>
     <title>Dynamo Careers</title>
     {% include 'bootstrap.html' %}
+    <style>
+      h2{
+        scroll-margin-top: 60px;
+      }
+    </style>
   </head>
   <body">
     {% include 'navbar.html' %}
@@ -24,7 +29,7 @@
           {% include 'jobitem.html' %}
         {% endfor %}
       </div>
-      <div style="text-align: center;" id="contactus">
+      <div style="text-align: center; scroll-margin-top: 50px;" id="contactus">
       <a class ="btn btn-primary" href="mailto:dipanshutripathi11@gmail.com?subject=Question%20about%20job%20Openings&body=My%20name%3A%20%3Cyour%20name%3E%0D%0A%0D%0AMy%20question%3A%20%3Center%20question%20here%3E" style="margin-top: 20px">Contact Us</a>
       </div>
     </div>
