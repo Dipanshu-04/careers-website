@@ -28,7 +28,27 @@
       <h4>Salary</h4>
       <p>{{job[0].currency}}{{job[0].salary}}</p>
       
-      {% include 'application_form.html' %}
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#applicationFormModal">
+          Apply Now
+        </button>
+      </div>
+
+        <!-- modal dialog for application form -->
+        <div class="modal fade" id="applicationFormModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="applicationFormModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content" style="background-color: rgba(240, 240, 240, 0.5); backdrop-filter: blur(10px);">
+              <div class="modal-header">
+                <h5 class="modal-title" id="applicationFormModalLabel">Application Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                {% include 'application_form.html' %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
     {% include 'footer.html' %}

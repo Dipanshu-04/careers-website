@@ -1,20 +1,146 @@
 <style>
   .navbar {
     transition: background-color 0.2s ease-in-out;
+    justify-content: center;
   }
 .navbar.scrolled{
+  
   background-color: rgba(89, 89, 89, 0.4);
-   backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  
 }
+  .navbar.expanded {
+    background-color: rgba(89, 89, 89, 0.4);
+    backdrop-filter: blur(10px);
+  }
+  
+  .demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.4)
+    // 	for demo
+    .menu-icon {
+      transform: scale(1.5);
+    }
+  }
+
+  :root {
+    --bar-bg: #212529;
+  }
+
+  .menu-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+
+    .menu-icon__cheeckbox {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+      z-index: 2;
+      -webkit-touch-callout: none;
+      position: absolute;
+      opacity: 0;
+    }
+    div {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 22px;
+      height: 12px;
+    }
+    span {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--bar-bg, #000);
+      border-radius: 1px;
+      transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+
+      &:first-of-type {
+        top: 0;
+      }
+      &:last-of-type {
+        bottom: 0;
+      }
+    }
+    &.active,
+    .menu-icon__cheeckbox:checked + div {
+      span {
+        &:first-of-type {
+          transform: rotate(45deg);
+          top: 5px;
+        }
+        &:last-of-type {
+          transform: rotate(-45deg);
+          bottom: 5px;
+        }
+      }
+    }
+
+    &.active:hover span:first-of-type,
+    &.active:hover span:last-of-type,
+    &:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
+    &:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
+      width: 22px;
+    }
+
+    &:hover {
+      // no need hover effect on mobile.
+      @media (min-width: 1024px) {
+        span:first-of-type {
+          width: 26px;
+        }
+
+        span:last-of-type {
+          width: 12px;
+        }
+      }
+    }
+  }
+
+  .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+  .navbar-toggler {
+    outline: none;
+    border: none;
+  }
+  
+
+  </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </style>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-scroll">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><b>Dynamo</b></a>
+    <a class="navbar-brand" href="/" style="margin-left: 0; margin-right: auto;"><b>Dynamo</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <div class="wrapper-menu">
+        <div class="demo">
+          <div class="menu-icon">
+            <input class="menu-icon__cheeckbox" type="checkbox" />
+            <div>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="nav nav-pills me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
+      <ul class="nav nav-pills justify-content-center">
         <li class="nav-item">
           <a class="nav-link" href="/#about">About</a>
         </li>
@@ -25,11 +151,22 @@
           <a class="nav-link" href="/#contactus">Contact Us</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </form>
+      
     </div>
-  </div>
 </nav>
+<script>
+  const navbar = document.querySelector('.navbar');
+  const collapseButton = document.querySelector('.navbar-toggler');
+
+  collapseButton.addEventListener('click', () => {
+    navbar.classList.toggle('expanded');
+  });
+</script>
+<script>
+  var wrapperMenu = document.querySelector('.wrapper-menu');
+
+  wrapperMenu.addEventListener('click', function(){
+    wrapperMenu.classList.toggle('open');  
+  })
+</script>
 <div style="height:56px"></div>
